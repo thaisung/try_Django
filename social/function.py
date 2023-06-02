@@ -12,7 +12,7 @@ def Tach_file_tang_truong(aa,bb):
 	warnings.filterwarnings("ignore")
 	pd.set_option('display.float_format', '{:.2f}'.format)
 
-	df_on = pd.read_excel("social/files_exel/"+aa)
+	df_on = pd.read_excel("try_Django/social/files_exel/"+aa)
 	cols = ['Mã model','Tên model','Giá bán khuyến mãi (SP cơ sở)','GrowNumber','Thời gian lên PO','Thời gian lên PO đến ngày','Thời gian áp dụng chia hàng','Thời gian kết thúc chia hàng','Thời gian áp dụng bán hàng','Thời gian kết thúc bán hàng','Siêu Thị Áp dụng']
 	df_on.columns = cols
 	df_on.head(2)
@@ -27,7 +27,7 @@ def Tach_file_tang_truong(aa,bb):
 	    k = len(lst_product)
 	    flag = 1
 	    while k > 0:
-	        df_Form = pd.read_excel("social/files_exel/Form.xlsx")
+	        df_Form = pd.read_excel("try_Django/social/files_exel/Form.xlsx")
 	        flag_product = lst_product[(flag-1)*80:flag*80]
 	        for product in flag_product:
 	            for i in lst_typestore:
@@ -42,9 +42,9 @@ def Tach_file_tang_truong(aa,bb):
 	        my_file = Path(bb+file_name)
 
 	        df_Form.to_excel(my_file,index=False)
-	        
+
 	        k = k - 80
 	        flag = flag + 1
 
-	    j = j + 1    
+	    j = j + 1
 	df_Form.head(2)
